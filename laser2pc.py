@@ -21,7 +21,7 @@ def scan_cb(msg):
     # convert the message of type LaserScan to a PointCloud2
     pc2_msg = lp.projectLaser(msg)
     point_list = pc2.read_points_list(pc2_msg)
-    print(list(point_list))
+    print(list(point_list[0]))
     print("x", point_list[0].x)
     # a=b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
     # x.deserialize(a)
@@ -32,6 +32,7 @@ def scan_cb(msg):
     # publish it
     print(type(point_list[0].x))
     resx=(point_list[0].x)+pos[0]
+    print(resx)
     
     # pc2_msg.deserialize()
     # point_list[0].x = point_list[0].x._replace(x=)
